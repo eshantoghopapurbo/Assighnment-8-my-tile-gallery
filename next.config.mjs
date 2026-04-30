@@ -3,9 +3,9 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'www.tilegallery.co.nz',
-      },
+      protocol: 'https',
+      hostname: '**',
+     },
     ],
   },
 };
