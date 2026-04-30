@@ -1,0 +1,98 @@
+[
+  {
+    "id": "tile_001",
+    "title": "Ceramic Blue Tile",
+    "description": "Premium ceramic tile with blue glaze finish",
+    "image": "/images/tiles/tile_001.jpg",
+    "category": "ceramic",
+    "price": 45.99,
+    "currency": "USD",
+    "dimensions": "60x60 cm",
+    "material": "Ceramic",
+    "inStock": true
+  },
+  {
+    "id": "tile_002",
+    "title": "Marble White Carrara",
+    "description": "Elegant white marble tile with natural grey veins for a luxury look",
+    "image": "/images/tiles/tile_002.jpg",
+    "category": "marble",
+    "price": 85.50,
+    "currency": "USD",
+    "dimensions": "80x80 cm",
+    "material": "Natural Marble",
+    "inStock": true
+  },
+  {
+    "id": "tile_003",
+    "title": "Granite Grey Texture",
+    "description": "Heavy-duty granite tile suitable for high-traffic outdoor areas",
+    "image": "/images/tiles/tile_003.jpg",
+    "category": "granite",
+    "price": 65.00,
+    "currency": "USD",
+    "dimensions": "60x60 cm",
+    "material": "Granite",
+    "inStock": false
+  },
+  {
+    "id": "tile_004",
+    "title": "Wood-Plank Porcelain",
+    "description": "Porcelain tile with a realistic wood grain texture and matte finish",
+    "image": "/images/tiles/tile_004.jpg",
+    "category": "porcelain",
+    "price": 52.25,
+    "currency": "USD",
+    "dimensions": "20x120 cm",
+    "material": "Porcelain",
+    "inStock": true
+  },
+  {
+    "id": "tile_005",
+    "title": "Rustic Terracotta Tile",
+    "description": "Earth-toned terracotta tile for a warm, traditional feel",
+    "image": "/images/tiles/tile_005.jpg",
+    "category": "clay",
+    "price": 38.50,
+    "currency": "USD",
+    "dimensions": "30x30 cm",
+    "material": "Clay",
+    "inStock": true
+  },
+  {
+    "id": "tile_006",
+    "title": "Matte Black Slate",
+    "description": "Natural slate finish in deep black for modern interior walls",
+    "image": "/images/tiles/tile_006.jpg",
+    "category": "stone",
+    "price": 72.00,
+    "currency": "USD",
+    "dimensions": "45x45 cm",
+    "material": "Natural Stone",
+    "inStock": true
+  },
+  {
+    "id": "tile_007",
+    "title": "Hexagon Mosaic Teal",
+    "description": "Small hexagonal mosaic tiles in a vibrant teal blue shade",
+    "image": "/images/tiles/tile_008.jpg",
+    "category": "mosaic",
+    "price": 25.45,
+    "currency": "USD",
+    "dimensions": "30x30 cm",
+    "material": "Glass",
+    "inStock": false
+  },
+  {
+    "id": "tile_008",
+    "title": "Vintage Floral Pattern",
+    "description": "Classic floral pattern tile for decorative bathroom floors",
+    "image": "/images/tiles/tile_012.jpg",
+    "category": "decorative",
+    "price": 34.75,
+    "currency": "USD",
+    "dimensions": "20x20 cm",
+    "material": "Ceramic",
+    "inStock": true
+  }
+]
