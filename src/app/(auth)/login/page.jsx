@@ -5,17 +5,18 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import { Card } from '@heroui/react';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { GrGoogle } from "react-icons/gr";
 
 
 const LogInPage = () => {
-    const router =useRouter();
+    const router = useRouter();
     const onSubmit = async (e) => {
         e.preventDefault();
 
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        console.log({email, password });
+        console.log({ email, password });
 
 
         const { data, error } = await authClient.signIn.email({
@@ -23,10 +24,15 @@ const LogInPage = () => {
             password,
         });
         console.log({ data, error });
-
         if (!error) {
             router.push("/")
         }
+    };
+
+    const handleGooglesignIn = async () => {
+        await authClient.signIn.social({
+            provider: "google",
+        })
     };
     return (
         <Card className="border mx-auto w-150 py-20 mt-10 items-center">
@@ -74,10 +80,12 @@ const LogInPage = () => {
                         Log In
                     </Button>
                 </div>
-                <div className="flex items-center ">
-                    <p className="text-xl font-bold"> Don't have an account? <Link href={"/singup"}><span className="text-blue-500">Sign Up</span></Link></p>
+                <div className="flex items-center  ">
+                    <p className="text-xl font-bold "> Don't have an account? <Link href={"/singup"}><span className="text-blue-500">Sign Up</span></Link></p>
                 </div>
             </Form>
+            <p className="text-lg text-center font-bold">OR CONTINUE WITH </p>
+            <Button onClick={handleGooglesignIn} variant="primary" className="w-full" ><GrGoogle></GrGoogle> sing In with Google</Button>
         </Card>
     );
 };
