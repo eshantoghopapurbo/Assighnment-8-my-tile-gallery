@@ -43,7 +43,7 @@ const Navbar = () => {
               </button>
            
               <button className='text-blue-500 text-bold'>
-                <Link href={"/register"}>Register</Link>
+                <Link href={"/singup"}>SighUp</Link>
               </button>
            
           
