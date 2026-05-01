@@ -11,7 +11,7 @@ const TileCard = ({ tile }) => {
     >
       <CardContent className="p-0 overflow-visible">
         <div className="relative w-full aspect-square overflow-hidden">
-          
+
           {/* Image */}
           <Image
             src={tile.image}
@@ -28,7 +28,7 @@ const TileCard = ({ tile }) => {
       </CardContent>
 
       <CardFooter className="flex-col items-start px-5 py-5 gap-3">
-        
+
         <div className="flex flex-col gap-1 w-full">
           <h2 className="text-lg font-semibold text-default-800 group-hover:text-primary transition-colors duration-300 line-clamp-1">
             {tile.title}

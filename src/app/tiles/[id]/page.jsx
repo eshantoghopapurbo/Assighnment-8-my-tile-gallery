@@ -2,6 +2,7 @@
 
 import { Card } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 
 const fetchData = async () => {
   const res = await fetch("http://localhost:3000/data.json");
@@ -9,12 +10,12 @@ const fetchData = async () => {
   return data;
 };
 
-const page = async ({ params }) => {
+const DetailsPage = async ({ params }) => {
   const tiles = await fetchData();
   const { id } = await params;
 
   const filteredTiles = tiles.find((t) => t.id === id);
-
+ 
   return (
     <div className="max-w-7xl mx-auto p-6 mt-9">
       <Card className="grid md:grid-cols-2 gap-8 p-6 rounded-3xl shadow-xl border">
@@ -77,14 +78,15 @@ const page = async ({ params }) => {
           </div>
 
           {/* BUTTON */}
+         <Link href="/">
           <button className="mt-4 w-full bg-black text-white py-3 rounded-xl hover:bg-gray-800 transition">
-            Add to Cart
+            Back to Home
           </button>
-
+         </Link>
         </div>
       </Card>
-    </div>
+    </div>  
   );
 };
 
-export default page;
+export default DetailsPage;
