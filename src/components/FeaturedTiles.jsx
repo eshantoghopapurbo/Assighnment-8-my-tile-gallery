@@ -7,6 +7,7 @@ const FeaturedTiles = async() => {
     const topTiles = tiles.slice(0,4)
     console.log(topTiles);
     return (
+        
         <div className='container mx-auto m-10 '>
             <h1 className='font-bold text-xl'>Featured Collection</h1>
             <p className='text-[gray]'>Hand-selected textures for premium space.</p>
