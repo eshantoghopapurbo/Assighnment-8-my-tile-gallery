@@ -11,7 +11,7 @@ import { Spinner } from '@heroui/react';
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
   const user = session?.user;
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -19,7 +19,6 @@ const Navbar = () => {
     <nav className="border-b bg-white sticky top-0 z-50 px-4">
       <div className="flex justify-between items-center py-3 max-w-7xl mx-auto w-full">
 
-        {/* Logo Section */}
         <div className="flex gap-2 items-center flex-shrink-0">
           <Image
             src={"/tile.jpg"}
@@ -32,14 +31,14 @@ const Navbar = () => {
           <h1 className="font-black text-base md:text-xl tracking-tight">The Tile Gallery</h1>
         </div>
 
-        {/* Mobile Toggle Button */}
+
         <div className="md:hidden flex items-center">
           <button onClick={toggleMenu} className="text-3xl focus:outline-none text-zinc-800">
             {isOpen ? <IoIosClose /> : <IoIosMenu />}
           </button>
         </div>
 
-        {/* Navigation Links - Desktop & Mobile */}
+
         <div className={`
           absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent border-b md:border-none
           flex flex-col md:flex-row items-center gap-6 p-6 md:p-0 transition-all duration-300 ease-in-out
@@ -61,7 +60,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Auth Section - Inside Mobile Menu */}
+
           <div className="md:hidden pt-4 border-t w-full flex flex-col items-center">
             {isPending ? (
               <Spinner size="sm" />
@@ -87,7 +86,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Auth Section */}
+
         <div className="hidden md:flex items-center gap-5">
           {isPending ? (
             <Spinner size="md" />

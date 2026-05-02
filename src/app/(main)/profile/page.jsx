@@ -24,7 +24,7 @@
 //             {user?.email && (
 //                 <p className="text-gray-500 text-sm mb-6">{user?.email}</p>
 //             )}
-               
+
 //               <UpdateUserModal />
 //             {/* <button
 //                 className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-all active:scale-95"
@@ -42,7 +42,8 @@
 import { UpdateUserModal } from '@/components/UpdateUserModal';
 import { authClient } from '@/lib/auth-client';
 import Image from 'next/image';
-import { Mail, ShieldCheck, User as UserIcon, Calendar, Camera } from 'lucide-react';
+import { Mail, ShieldCheck, User as UserIcon, Calendar, Camera, LockKeyhole } from 'lucide-react';
+import Link from 'next/link';
 
 const ProfilePage = () => {
     const { data: session } = authClient.useSession();
@@ -51,8 +52,21 @@ const ProfilePage = () => {
     // Loading state handling
     if (!session) {
         return (
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            <div className="flex items-center justify-center min-h-[80vh] px-4">
+                <div className="max-w-md w-full bg-white border border-slate-200 p-8 rounded-[2rem] shadow-xl shadow-slate-100 text-center">
+                    <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <LockKeyhole className="w-8 h-8 text-blue-600" />
+                    </div>
+
+                    <h2 className="text-xl font-bold text-slate-900 mb-2">Login Required</h2>
+                    <p className="text-slate-500 text-sm mb-6">Please log in to access and manage your profile details.</p>
+
+                    <Link href="/login" className="block">
+                        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl transition-all active:scale-95 shadow-lg shadow-blue-100">
+                            Go to Login
+                        </button>
+                    </Link>
+                </div>
             </div>
         );
     }
@@ -60,16 +74,15 @@ const ProfilePage = () => {
     return (
         <div className="min-h-screen bg-slate-50/50 py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
-                {/* Profile Header Card */}
                 <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
                     <div className="h-32 bg-gradient-to-r from-blue-600 to-indigo-600"></div>
-                    
+
                     <div className="px-8 pb-8">
                         <div className="relative flex justify-between items-end -mt-16 mb-6">
                             <div className="relative">
                                 <div className="p-1 bg-white rounded-2xl shadow-lg">
                                     <Image
-                                        src={user?.image || "https://avatar.vercel.sh/user"}
+                                        src={user?.image}
                                         alt="Profile"
                                         width={120}
                                         height={120}
@@ -80,7 +93,7 @@ const ProfilePage = () => {
                                     <Camera className="w-4 h-4 text-slate-600" />
                                 </button>
                             </div>
-                            
+
                             <UpdateUserModal />
                         </div>
 
@@ -109,7 +122,7 @@ const ProfilePage = () => {
                                         <p className="text-slate-700 font-medium">{user?.name}</p>
                                     </div>
                                 </div>
-                                
+
                                 <div className="flex items-start gap-3">
                                     <div className="p-2 bg-purple-50 rounded-lg">
                                         <Mail className="w-5 h-5 text-purple-600" />
@@ -131,18 +144,14 @@ const ProfilePage = () => {
                                 </div>
                             </div>
                         </div>
-
-                        {/* Additional Section: Bio/About */}
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                             <h3 className="text-lg font-semibold text-slate-900 mb-2">About Me</h3>
                             <p className="text-slate-600 leading-relaxed">
-                                Professional developer passionate about creating intuitive user experiences. 
+                                Professional developer passionate about creating intuitive user experiences.
                                 Always exploring new technologies and pushing the boundaries of web development.
                             </p>
                         </div>
                     </div>
-
-                    {/* Right Column: Stats/Status */}
                     <div className="space-y-6">
                         <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                             <h3 className="text-sm font-semibold text-slate-900 mb-4 uppercase tracking-wider text-center">Account Status</h3>
@@ -158,7 +167,7 @@ const ProfilePage = () => {
                             <div className="text-center">
                                 <p className="text-xs text-slate-400 italic">Last login: 2 hours ago</p>
                             </div>
-                        
+
                         </div>
                     </div>
                 </div>
