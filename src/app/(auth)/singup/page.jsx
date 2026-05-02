@@ -5,9 +5,15 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import { Card } from '@heroui/react';
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 
 const SingUp = () => {
+  const tostfyhandle = () => {
+          toast.success("sign up succesful!",
+              {position:"top-center"}
+          )
+      }
   const router =useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -102,7 +108,7 @@ const SingUp = () => {
           <FieldError />
         </TextField>
         <div className="flex gap-2 col">
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full" onClick={tostfyhandle}>
             <Check />
             Sing UP
           </Button>
