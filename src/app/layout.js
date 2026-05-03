@@ -31,7 +31,6 @@ export default function RootLayout({ children }) {
          <ToastContainer position="top-center"/>
         <Navbar></Navbar>
         {children}
-        <ChooseUs></ChooseUs>
         <Footer></Footer>
         </body>
     </html>
