@@ -7,6 +7,7 @@ import { IoIosHome, IoIosMenu, IoIosClose } from 'react-icons/io';
 import { FaBorderAll } from 'react-icons/fa';
 import { authClient } from '@/lib/auth-client';
 import { Spinner } from '@heroui/react';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
   const { data: session, isPending } = authClient.useSession();
@@ -14,6 +15,11 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const handleLogOut = async () => {
+    await authClient.signOut();
+    toast.success("Logged out successfully!", { position: "top-center" });
+  }
 
   return (
     <nav className="border-b bg-white sticky top-0 z-50 px-4">
@@ -98,7 +104,7 @@ const Navbar = () => {
               </div>
               <button
                 className='text-sm font-black text-red-500 hover:underline'
-                onClick={async () => await authClient.signOut()}
+                onClick={handleLogOut}
               >
                 Log Out
               </button>

@@ -96,7 +96,7 @@ const SingUp = () => {
             <FieldError />
           </TextField>
 
-          <Button type="submit" className="w-full" onClick={tostfyhandle}>
+          <Button type="submit" className="w-full" >
             <Check />
             Sign Up
           </Button>
@@ -113,4 +113,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default SingUp; 

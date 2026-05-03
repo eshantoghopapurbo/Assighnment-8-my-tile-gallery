@@ -3,20 +3,26 @@
 import { User, ImagePlus, Sparkles } from "lucide-react"; // Modern Icons
 import { Button, Input, Label, Modal, Surface, TextField } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
+import { toast } from "react-toastify";
+// import toast from "react-hot-toast";
 export function UpdateUserModal() {
-    const onSubmit = async (e) => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const image = e.target.image.value;
-        await authClient.updateUser({
-            name,
-            image
-        })
-    }
+const onSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const image = e.target.image.value;
+    
+    const { error } = await authClient.updateUser({
+        name,
+        image
+    });
+
+    
+    toast.success("Profile updated successfully!", { position: "top-center" }); 
+};
     return (
         <Modal>
             {/* Trigger Button */}
-            <Button variant="primary" className="w-full mt-20">Update Profile</Button>
+            <Button variant="primary"  className="w-full mt-20">Update Profile</Button>
 
             <Modal.Backdrop className="backdrop-blur-md">
                 <Modal.Container placement="auto">
@@ -37,7 +43,8 @@ export function UpdateUserModal() {
                                         <Label className="text-sm font-bold text-zinc-700 mb-2 ml-1 flex items-center gap-2">
                                             <User className="size-4 text-zinc-400" /> Name
                                         </Label>
-                                        <Input
+                                        <Input 
+                                        required
                                             placeholder="Enter your name"
                                             className="h-12 border-2 border-zinc-100 rounded-xl px-4 focus:border-indigo-500 transition-all"
                                         />
@@ -48,7 +55,8 @@ export function UpdateUserModal() {
                                         <Label className="text-sm font-bold text-zinc-700 mb-2 ml-1 flex items-center gap-2">
                                             <ImagePlus className="size-4 text-zinc-400" /> Profile Image URL
                                         </Label>
-                                        <Input
+                                        <Input 
+                                        required
                                             placeholder="Paste image link here"
                                             className="h-12 border-2 border-zinc-100 rounded-xl px-4 focus:border-indigo-500 transition-all"
                                         />

@@ -11,26 +11,26 @@ const ProfilePage = () => {
     const user = session?.user;
 
     // Loading state handling
-    if (!session) {
-        return (
-            <div className="flex items-center justify-center min-h-[80vh] px-4">
-                <div className="max-w-md w-full bg-white border border-slate-200 p-8 rounded-[2rem] shadow-xl shadow-slate-100 text-center">
-                    <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
-                        <LockKeyhole className="w-8 h-8 text-blue-600" />
-                    </div>
+    // if (!session) {
+    //     return (
+    //         <div className="flex items-center justify-center min-h-[80vh] px-4">
+    //             <div className="max-w-md w-full bg-white border border-slate-200 p-8 rounded-[2rem] shadow-xl shadow-slate-100 text-center">
+    //                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-5">
+    //                     <LockKeyhole className="w-8 h-8 text-blue-600" />
+    //                 </div>
 
-                    <h2 className="text-xl font-bold text-slate-900 mb-2">Login Required</h2>
-                    <p className="text-slate-500 text-sm mb-6">Please log in to access and manage your profile details.</p>
+    //                 <h2 className="text-xl font-bold text-slate-900 mb-2">Login Required</h2>
+    //                 <p className="text-slate-500 text-sm mb-6">Please log in to access and manage your profile details.</p>
 
-                    <Link href="/login" className="block">
-                        <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl transition-all active:scale-95 shadow-lg shadow-blue-100">
-                            Go to Login
-                        </button>
-                    </Link>
-                </div>
-            </div>
-        );
-    }
+    //                 <Link href="/login" className="block">
+    //                     <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-6 rounded-xl transition-all active:scale-95 shadow-lg shadow-blue-100">
+    //                         Go to Login
+    //                     </button>
+    //                 </Link>
+    //             </div>
+    //         </div>
+    //     );
+    // }
 
     return (
         <div className="min-h-screen bg-slate-50/50 py-12 px-4 sm:px-6 lg:px-8">
@@ -57,11 +57,10 @@ const ProfilePage = () => {
 
                             <UpdateUserModal />
                         </div>
-
                         <div className="space-y-1">
                             <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-                                {user?.name}
-                                {user?.emailVerified && <ShieldCheck className="w-5 h-5 text-blue-500" />}
+                               {user?.name}
+                               {user?.emailVerified && <ShieldCheck className="w-5 h-5 text-blue-500" />}
                             </h1>
                         </div>
                     </div>

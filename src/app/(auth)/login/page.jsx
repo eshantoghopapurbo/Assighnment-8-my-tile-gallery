@@ -21,11 +21,21 @@ const LogInPage = () => {
         const password = e.target.password.value;
 
         const { data, error } = await authClient.signIn.email({ email, password });
-        if (!error) router.push("/");
+        if(!error){
+            toast.success("Login successful!", { position: "top-center" });
+            router.push("/");
+        }else{
+            toast.error(error.message || "Login failed!", { position: "top-center" });
+        }
     };
 
     const handleGooglesignIn = async () => {
-        await authClient.signIn.social({ provider: "google" });
+       const {error} = await authClient.signIn.social({
+             provider: "google" });
+             if(!error){
+                toast.success("Google Login successful!", {position: "top-center" });
+                router.push("/")
+             }
     };
 
     return (
@@ -84,7 +94,7 @@ const LogInPage = () => {
 
                 <p className="text-lg text-center font-bold my-4">OR CONTINUE WITH</p>
 
-                <Button type="submit" variant="primary" className="w-full">
+                <Button onClick={handleGooglesignIn} variant="primary" className="w-full">
                     <GrGoogle /> Sign In with Google
                 </Button>   
             </Card>

@@ -1,9 +1,9 @@
     
 
+import Loading from "@/app/loading";
 import { Card } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
-
 const fetchData = async () => {
   const res = await fetch("https://assighnment-8-my-tile-gallery.vercel.app/data.json");
   const data = await res.json();
