@@ -95,7 +95,7 @@ const LogInPage = () => {
 
                 <p className="text-lg text-center font-bold my-4">OR CONTINUE WITH</p>
 
-                <Button type="submit" variant="primary" className="w-full">
+                <Button type="submit" variant="primary" onClick={handleGooglesignIn} className="w-full">
                     <GrGoogle /> Sign In with Google
                 </Button>   
             </Card>
