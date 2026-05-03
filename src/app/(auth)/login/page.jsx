@@ -32,6 +32,11 @@ const LogInPage = () => {
 
     const handleGooglesignIn = async () => {
         await authClient.signIn.social({ provider: "google" });
+        if(!error){
+            toast.error("error message",{position :"top-center"})
+        }else{
+             router.push("/")
+        }
     };
 
     return (

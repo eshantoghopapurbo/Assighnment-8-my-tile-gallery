@@ -9,11 +9,7 @@ import { toast } from "react-toastify";
 
 const SingUp = () => {
   const router = useRouter();
-
-  const tostfyhandle = () => {
-    toast.success("Sign up successful!", { position: "top-center" });
-  };
-
+   
   const onSubmit = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -22,7 +18,12 @@ const SingUp = () => {
     const password = e.target.password.value;
 
     const { data, error } = await authClient.signUp.email({ email, password, name, image });
-    if (!error) router.push("/");
+    if (!error) {
+      toast.success("Sign up successful!", { position: "top-center" });
+      router.push("/");
+    } else {
+      toast.error(error.message || "Sign up failed!", { position: "top-center" });
+    }
   };
 
   return (
