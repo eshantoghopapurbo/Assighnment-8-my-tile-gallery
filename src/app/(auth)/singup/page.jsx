@@ -10,11 +10,11 @@ import { toast } from "react-toastify";
 
 const SingUp = () => {
   const tostfyhandle = () => {
-          toast.success("sign up succesful!",
-              {position:"top-center"}
-          )
-      }
-  const router =useRouter();
+    toast.success("sign up succesful!",
+      { position: "top-center" }
+    )
+  }
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,7 +34,7 @@ const SingUp = () => {
     });
     console.log({ data, error });
 
-     if(!error) {
+    if (!error) {
       router.push("/")
     }
   };
@@ -114,7 +114,7 @@ const SingUp = () => {
           </Button>
         </div>
         <div className="flex items-center ">
-           <p className="text-xl font-bold">Already have an account ? <Link href={"/login"}><span className="text-blue-500">Login</span></Link></p>
+          <p className="text-xl font-bold">Already have an account ? <Link href={"/login"}><span className="text-blue-500">Login</span></Link></p>
         </div>
       </Form>
     </Card>
