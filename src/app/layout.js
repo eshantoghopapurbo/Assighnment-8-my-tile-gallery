@@ -1,3 +1,4 @@
+import "react-toastify/dist/ReactToastify.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -26,7 +27,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-         <ToastContainer />
+         <ToastContainer position="top-center"/>
         <Navbar></Navbar>
         {children}
         <Footer></Footer>
